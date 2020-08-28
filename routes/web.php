@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/authors', 'mediaSite\authors\CreateAuthorController@execute');
+Route::get('/authors', 'mediaSite\authors\ListAuthorsController@execute');
