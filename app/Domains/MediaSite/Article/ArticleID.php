@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domains\MediaSite\Author;
+namespace App\Domains\MediaSite\Article;
 
 use Ramsey\Uuid\Uuid;
 
-class AuthorID {
+class ArticleID {
     private string $value;
     
     private function __construct(?string $value)
@@ -19,6 +19,6 @@ class AuthorID {
 
     public function getValue(): string
     {
-        return $this->value;
+        return $this->id;
     } 
 }

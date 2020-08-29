@@ -22,7 +22,7 @@ class Name {
         }
 
         if (empty($value) === true) {
-            throw new \InvalidArgumentException('Nome do author está sem vazio.');
+            throw new \InvalidArgumentException('Nome do author está vazio.');
         }
 
         if (strlen($value) < self::MIN_LENGTH) {

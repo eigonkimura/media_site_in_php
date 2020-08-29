@@ -2,7 +2,7 @@
 
 namespace App\Domains\MediaSite\Author;
 
-use Ramsey\Uuid\Uuid;
+use App\Domains\Core\Shared\Guard;
 
 class Author {
     private AuthorID $id;
@@ -16,6 +16,9 @@ class Author {
 
     public function create(Name $name, AuthorID $id): self
     {
+        (new Guard('nome do autor', $name))->againstNull();
+        (new Guard('ID do autor', $id))->againstNull();
+
         return new self($name, $id);
     }
 
