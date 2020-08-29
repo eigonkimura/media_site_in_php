@@ -2,20 +2,23 @@
 
 namespace App\Domains\MediaSite\Author;
 
-use Ramsey\Uuid\Rfc4122\UuidV4;
 use Ramsey\Uuid\Uuid;
 
 class AuthorID {
-    private Uuid $value;
+    private string $value;
+    
+    private function __construct(?string $id)
+    {
+        $this->id = is_null($id) ? Uuid::uuid4()->toString() : $id;
+    }
 
-    // private function __construct(()
-    // {
-        
-    // }
+    public function create(?string $id): self
+    {
+        return new self($id);
+    }
 
-    // public function create(): self
-    // {
-    //     Uuid::uuid4()->
-    //     return new self()
-    // }
+    public function getID(): string
+    {
+        return $this->id;
+    } 
 }

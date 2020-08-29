@@ -8,14 +8,24 @@ class Author {
     private AuthorID $id;
     private Name $name;
     
-    private function __construct(Name $name, ?AuthorID $id)
+    private function __construct(Name $name, AuthorID $id)
     {
-        $this->id = is_null($id) ? Uuid::uuid4() : $id;
+        $this->id = $id;
         $this->name = $name;
     }
 
-    public function create(Name $name, ?AuthorID $id): self
+    public function create(Name $name, AuthorID $id): self
     {
         return new self($name, $id);
+    }
+
+    public function getID(): AuthorID
+    {
+        return $this->id;
+    }
+
+    public function getName(): Name
+    {
+        return $this->name;
     }
 }
